@@ -1,0 +1,14 @@
+{
+  "ID": "B3D2951C87324B17810F3510CF49AF82",
+  "ActionKeyword": "va",
+  "IsGlobal": false,
+  "Name": "vATIS launcher",
+  "Author": "Neil Enns",
+  "Version": "0.86.0",
+  "Language": "csharp",
+  "Website": "https://github.com/neilenns/Community.PowerToys.Run.Plugin.vAtisLauncher",
+  "ExecuteFileName": "Community.PowerToys.Run.Plugin.vAtisLauncher.dll",
+  "IcoPathDark": "Images\\community.powertoys.run.plugin.vAtisLauncher.dark.png",
+  "IcoPathLight": "Images\\community.powertoys.run.plugin.vAtisLauncher.light.png",
+  "DynamicLoading": false
+}
