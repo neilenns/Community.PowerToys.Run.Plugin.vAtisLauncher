@@ -27,12 +27,12 @@ namespace Community.PowerToys.Run.Plugin.vAtisLauncher
         /// <summary>
         /// Gets the name of the plugin.
         /// </summary>
-        public string Name => "vAtis launcher";
+        public string Name => "vATIS launcher";
 
         /// <summary>
         /// Gets the description of the plugin.
         /// </summary>
-        public string Description => "Launches vAtis with the selected profile.";
+        public string Description => "Launches vATIS with the selected profile.";
 
         private PluginInitContext Context { get; set; }
 
