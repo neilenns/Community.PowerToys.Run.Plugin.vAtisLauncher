@@ -17,14 +17,10 @@ namespace Community.PowerToys.Run.Plugin.vAtisLauncher
     /// </summary>
     public static class ProfileManager
     {
-#pragma warning disable SA1311 // Static readonly fields should begin with upper-case letter
-        private static readonly List<Profile> mProfiles = [];
-#pragma warning restore SA1311 // Static readonly fields should begin with upper-case letter
-
         /// <summary>
         /// Gets the list of profiles.
         /// </summary>
-        public static IReadOnlyList<Profile> Profiles => mProfiles;
+        public static IList<Profile> Profiles { get; } = [];
 
         /// <summary>
         /// Returns a list of profiles that match the specified query.
@@ -48,7 +44,7 @@ namespace Community.PowerToys.Run.Plugin.vAtisLauncher
         public static void LoadProfiles()
         {
             var folderPath = ProfileManager.GetProfilePath();
-            mProfiles.Clear();
+            Profiles.Clear();
 
             if (string.IsNullOrEmpty(folderPath) || !Directory.Exists(folderPath))
             {
@@ -72,7 +68,7 @@ namespace Community.PowerToys.Run.Plugin.vAtisLauncher
                     {
                         Log.Info($"Loaded profile {profile.Name} from {file}", typeof(ProfileManager));
                         profile.FilePath = file;
-                        mProfiles.Add(profile);
+                        Profiles.Add(profile);
                     }
                 }
                 catch (Exception ex)
@@ -81,7 +77,7 @@ namespace Community.PowerToys.Run.Plugin.vAtisLauncher
                 }
             }
 
-            Log.Info($"Loaded {mProfiles.Count} profiles.", typeof(ProfileManager));
+            Log.Info($"Loaded {Profiles.Count} profiles.", typeof(ProfileManager));
         }
 
         /// <summary>
