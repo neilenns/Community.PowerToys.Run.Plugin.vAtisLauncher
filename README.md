@@ -1,7 +1,8 @@
 # vATIS profile launcher for PowerToys Run
 
 > [!IMPORTANT]
-> This plugin requires [vATIS version v4.1.0-beta.3 or later](https://vatis.app/).
+> This plugin requires [vATIS version v4.1.0-beta.3 or later](https://vatis.app/) and
+> [Microsoft PowerToys version v0.87.0 or later](https://github.com/microsoft/PowerToys/releases/latest).
 
 A [PowerToys Run](https://learn.microsoft.com/en-us/windows/powertoys/run) plugin for launching vATIS profiles, useful
 for VATSIM controllers.
