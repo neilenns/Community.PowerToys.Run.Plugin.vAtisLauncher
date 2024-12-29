@@ -6,9 +6,9 @@ on:
 
 env:
   ZipPrefix: vAtisLauncher
-  BuildFolderName: vAtisLauncher
+  BuildFolderName: vAtis Launcher
   ProjectName: Community.PowerToys.Run.Plugin.vAtisLauncher
-  FrameworkVersion: net8.0-windows10.0.22621.0
+  FrameworkVersion: net9.0-windows10.0.22621.0
 
 jobs:
   build:

@@ -8,7 +8,7 @@ sudo {
 
 	# change this to your PowerToys installation path
 	$ptPath = "$env:LOCALAPPDATA\PowerToys"
-	$debug = '.\bin\x64\Debug\net8.0-windows10.0.22621.0'
+	$debug = '.\bin\x64\Debug\net9.0-windows10.0.22621.0'
 	$dest = "$env:LOCALAPPDATA\Microsoft\PowerToys\PowerToys Run\Plugins\vAtisLauncher"
 	$files = @(
 		"Community.PowerToys.Run.Plugin.vAtisLauncher.deps.json",
