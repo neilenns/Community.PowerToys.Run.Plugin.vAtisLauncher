@@ -47,23 +47,9 @@ namespace Community.PowerToys.Run.Plugin.vAtisLauncher
         /// <returns>A filtered list, can be empty when nothing was found.</returns>
         public List<Result> Query(Query query)
         {
-            var results = ProfileManager.GetMatchingProfiles(query.Search);
+            var results = ProfileViewModel.GetMatchingProfiles(query.Search);
 
-            return [.. results
-                .Select(profile => new Result
-                {
-                    QueryTextDisplay = profile.Name,
-                    IcoPath = this.IconPath,
-                    Title = profile.Name,
-                    SubTitle = profile.StationIdentifiers,
-                    Action = _ =>
-                    {
-                        Launch(profile.Id);
-                        Log.Info($"Selected {profile.Name} {profile.Id}", this.GetType());
-                        return true;
-                    },
-                })
-                .OrderBy(profile => profile.Title)];
+            return results;
         }
 
         /// <summary>
@@ -75,7 +61,7 @@ namespace Community.PowerToys.Run.Plugin.vAtisLauncher
             this.Context = context ?? throw new ArgumentNullException(nameof(context));
             this.Context.API.ThemeChanged += this.OnThemeChanged;
             this.UpdateIconPath(this.Context.API.GetCurrentTheme());
-            ProfileManager.LoadProfiles();
+            ProfileViewModel.Initialize(this.IconPath);
         }
 
         /// <summary>
@@ -112,28 +98,6 @@ namespace Community.PowerToys.Run.Plugin.vAtisLauncher
             }
 
             this.Disposed = true;
-        }
-
-        private static void Launch(string id)
-        {
-            var appPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "org.vatsim.vatis", "current", "vATIS.exe");
-            var argument = $"--profile {id}";
-
-            Log.Info($"Launching {appPath} {argument}", typeof(Main));
-            try
-            {
-                var processStartInfo = new ProcessStartInfo
-                {
-                    FileName = appPath,
-                    Arguments = argument,
-                };
-
-                Process.Start(processStartInfo);
-            }
-            catch (Exception ex)
-            {
-                Log.Error($"Unable to launch vATIS: {ex.Message}", typeof(Main));
-            }
         }
 
         private void UpdateIconPath(Theme theme) => this.IconPath = theme == Theme.Light || theme == Theme.HighContrastWhite ? "Images/community.powertoys.run.plugin.vAtisLauncher.light.png" : "Images/community.powertoys.run.plugin.vAtisLauncher.dark.png";
