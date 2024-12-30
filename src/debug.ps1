@@ -13,6 +13,7 @@ sudo {
 	$files = @(
 		"Community.PowerToys.Run.Plugin.vAtisLauncher.deps.json",
 		"Community.PowerToys.Run.Plugin.vAtisLauncher.dll",
+		"Community.PowerToys.Run.Plugin.vAtisLauncher.pdb",
 		'plugin.json',
 		'Images'
 	)
