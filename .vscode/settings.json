@@ -7,5 +7,5 @@
     "**/obj": true
   },
   "git.enableSmartCommit": true,
-  "cSpell.words": ["Atis"]
+  "cSpell.words": ["Atis", "dhkatz", "pwsh", "softprops", "tnik", "wangzuo"]
 }
